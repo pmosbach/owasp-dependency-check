@@ -2,7 +2,7 @@ FROM java:8-alpine
 
 MAINTAINER Luke Sigler <lukesigler@outlook.com>
 
-ENV PROJECT_NAME "generic project"
+ENV PROJECT_NAME "generic"
 
 RUN apk update && \
     apk add bash curl wget && \

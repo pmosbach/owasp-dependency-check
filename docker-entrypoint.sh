@@ -2,4 +2,4 @@
 
 /tmp/dependency-check/bin/dependency-check.sh --scan "/tmp/src" \
   --format "ALL" \
-  --project $(PROJECT_NAME)
+  --project ${PROJECT_NAME}
