@@ -13,14 +13,12 @@ RUN wget -qO- -O owasp.zip http://dl.bintray.com/jeremy-long/owasp/dependency-ch
     rm owasp.zip && \
     mv dependency-check /tmp/
 
-RUN /tmp/dependency-check/bin/dependency-check.sh --updateonly 
+RUN /tmp/dependency-check/bin/dependency-check.sh --updateonly
 
 ADD docker-entrypoint.sh /tmp/docker-entrypoint.sh
 
 RUN chmod +x /tmp/docker-entrypoint.sh
 
 WORKDIR /tmp/report
-
-RUN for i in $(ls -d /tmp/*); do echo ${i}; done
 
 ENTRYPOINT ["/tmp/docker-entrypoint.sh"]
