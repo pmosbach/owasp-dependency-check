@@ -1,6 +1,6 @@
 # owasp-dependency-check
 
-[![CircleCI](https://circleci.com/gh/embrasure/owasp-dependency-check.svg?style=svg)](https://circleci.com/gh/embrasure/owasp-dependency-check) [![](https://badge.imagelayers.io/embrasure/owasp-dependency-check:latest.svg)](https://imagelayers.io/?images=embrasure/owasp-dependency-check:latest 'Get your own badge on imagelayers.io') [![Docker Pulls](https://img.shields.io/docker/pulls/embrasure/owasp-dependency-check.svg?maxAge=2592000)]() [![license](https://img.shields.io/badge/license-MIT-blue.svg?style=plastic)](https://hub.docker.com/r/embrasure/owasp-dependency-check/)
+[![CircleCI](https://circleci.com/gh/embrasure/owasp-dependency-check.svg?style=svg)](https://circleci.com/gh/embrasure/owasp-dependency-check) [![](https://badge.imagelayers.io/embrasure/owasp-dependency-check:latest.svg)](https://imagelayers.io/?images=embrasure/owasp-dependency-check:latest 'Get your own badge on imagelayers.io') [![Docker Pulls](https://img.shields.io/docker/pulls/embrasure/owasp-dependency-check.svg?maxAge=2592000)](https://hub.docker.com/r/embrasure/owasp-dependency-check/) [![license](https://img.shields.io/badge/license-MIT-blue.svg?style=plastic)](https://github.com/embrasure/owasp-dependency-check/blob/master/LICENSE)
 
 ## About owasp-dependency-check
 
