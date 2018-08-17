@@ -1,9 +1,5 @@
 FROM java:8-alpine
 
-MAINTAINER Luke Sigler <lukesigler@outlook.com>
-
-ENV PROJECT_NAME "generic"
-
 RUN apk update && \
     apk add bash curl wget && \
     rm -rf /tmp/* /var/cache/apk/*
@@ -21,4 +17,5 @@ RUN chmod +x /tmp/docker-entrypoint.sh
 
 WORKDIR /tmp/report
 
-ENTRYPOINT ["/tmp/docker-entrypoint.sh"]
+#ENTRYPOINT ["/tmp/docker-entrypoint.sh"]
+ENTRYPOINT ["pwd"]

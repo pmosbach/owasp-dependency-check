@@ -4,11 +4,13 @@
 
 ## About owasp-dependency-check
 
-An alpine container containing version 1.4.3 of the [OWASP Dependency Check](https://www.owasp.org/index.php/OWASP_Dependency_Check) CLI, along with a pre-seeded database to speed up scans. 
+An alpine container containing version 3.3.1 of the [OWASP Dependency Check](https://www.owasp.org/index.php/OWASP_Dependency_Check) CLI, along with a pre-seeded database to speed up scans.
+
+This was forked from embrasure/owasp-dependency-check in order to pull in a more up-to-date version of the CLI.
 
 ## Install
 
-`$ docker pull embrasure/owasp-dependency-check`
+`$ docker pull pmosbach/owasp-dependency-check`
 
 ## Usage
 
