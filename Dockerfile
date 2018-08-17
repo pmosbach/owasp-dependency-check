@@ -17,5 +17,5 @@ RUN chmod +x /tmp/docker-entrypoint.sh
 
 WORKDIR /tmp/report
 
-#ENTRYPOINT ["/tmp/docker-entrypoint.sh"]
-ENTRYPOINT ["pwd"]
+ENTRYPOINT ["/tmp/docker-entrypoint.sh"]
+#ENTRYPOINT ["ls","-al"]
