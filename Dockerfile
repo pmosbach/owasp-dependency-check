@@ -17,5 +17,5 @@ RUN chmod +x /tmp/docker-entrypoint.sh
 
 WORKDIR /tmp/report
 
-ENTRYPOINT ["/tmp/docker-entrypoint.sh"]
-#ENTRYPOINT ["ls","-al"]
+#ENTRYPOINT ["/tmp/docker-entrypoint.sh"]
+ENTRYPOINT ["/tmp/dependency-check/bin/dependency-check.sh","--scan","/tmp/report","--format","HTML","--project","Testing"]
