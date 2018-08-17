@@ -16,11 +16,11 @@ This was forked from embrasure/owasp-dependency-check in order to pull in a more
 
 ###### run with default settings
 
-`$ docker run --rm -v <project_source>:/tmp/src -v <report_destination_directory>:/tmp/reports -w /tmp/src -w /tmp/reports embrasure/owasp-dependency-check`
+`$ docker run --rm -v <project_source>:/tmp/src -v <report_destination_directory>:/tmp/reports -w /tmp/src -w /tmp/reports pmosbach/owasp-dependency-check`
 
 ###### run with additional arguments 
 
-`$ docker run --rm -v <project_source>:/tmp/src -v <report_destination_directory>:/tmp/reports -w /tmp/src -w /tmp/reports embrasure/owasp-dependency-check --enableExperimental --disableBundleAudit "true"`
+`$ docker run --rm -v <project_source>:/tmp/src -v <report_destination_directory>:/tmp/reports -w /tmp/src -w /tmp/reports pmosbach/owasp-dependency-check --enableExperimental --disableBundleAudit "true"`
 
 ### Optional Environment Variables
 
