@@ -13,7 +13,8 @@ RUN /tmp/dependency-check/bin/dependency-check.sh --updateonly
 
 ADD docker-entrypoint.sh /tmp/docker-entrypoint.sh
 
-RUN chmod +x /tmp/docker-entrypoint.sh
+RUN chmod +x /tmp/docker-entrypoint.sh && \
+    mkdir -p /tmp/report
 
 WORKDIR /tmp/report
 
