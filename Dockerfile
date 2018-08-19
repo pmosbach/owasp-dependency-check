@@ -1,22 +1,22 @@
 FROM java:8-alpine
 
+ENV version_url=https://jeremylong.github.io/DependencyCheck/current.txt
+ENV download_url=https://dl.bintray.com/jeremy-long/owasp
+
 RUN apk update && \
     apk add bash curl wget && \
     rm -rf /tmp/* /var/cache/apk/*
 
-RUN wget -qO- -O owasp.zip http://dl.bintray.com/jeremy-long/owasp/dependency-check-3.3.1-release.zip && \
+RUN wget -q -O /tmp/current.txt ${version_url} && \
+    version=$(cat /tmp/current.txt) && \
+    file="dependency-check-${version}-release.zip" && \
+    wget -q -O owasp.zip $download_url/$file && \
     unzip owasp.zip && \
     rm owasp.zip && \
     mv dependency-check /tmp/
 
 RUN /tmp/dependency-check/bin/dependency-check.sh --updateonly
 
-ADD docker-entrypoint.sh /tmp/docker-entrypoint.sh
-
-RUN chmod +x /tmp/docker-entrypoint.sh && \
-    mkdir -p /tmp/report
-
-WORKDIR /tmp/report
-
-#ENTRYPOINT ["/tmp/docker-entrypoint.sh"]
-ENTRYPOINT ["/tmp/dependency-check/bin/dependency-check.sh","--scan","/tmp/report","--format","HTML","--project","Testing"]
+# This is intended to be a sane fallback, but you should override this via your .gitlab-ci.yml
+CMD ["--scan","/builds","--format","ALL","--project","GENERIC"]
+ENTRYPOINT ["/tmp/dependency-check/bin/dependency-check.sh"]
