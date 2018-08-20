@@ -6,12 +6,14 @@ ENV version_url=https://jeremylong.github.io/DependencyCheck/current.txt
 ENV download_url=https://dl.bintray.com/jeremy-long/owasp
 
 RUN apk update && \
-    apk add bash curl wget && \
+    apk add bash curl wget ruby && \
+    gem install bundler-audit --no-rdoc --no-ri && \
+    gem cleanup && \
     apk add --no-cache mono --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing && \
     apk add --no-cache --virtual=.build-dependencies ca-certificates && \
     cert-sync /etc/ssl/certs/ca-certificates.crt && \
     apk del .build-dependencies && \
-    rm -rf /tmp/* /var/cache/apk/*
+    rm -rf /tmp/* /var/cache/apk/* /usr/lib/ruby/gems/*/cache/*
 
 RUN wget -q -O /tmp/current.txt ${version_url} && \
     version=$(cat /tmp/current.txt) && \
