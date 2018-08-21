@@ -14,10 +14,29 @@ This was forked from embrasure/owasp-dependency-check in order to pull in a more
 
 ## Usage
 
-###### run with default settings
+### Basic configuration with GitLab CI
 
-`$ docker run --rm -v <project_source>:/tmp/src -v <report_destination_directory>:/tmp/reports -w /tmp/src -w /tmp/reports pmosbach/owasp-dependency-check`
+The following is an example job from a `.gitlab-ci.yml` file to use this image to run OWASP Dependency Check:
+```yml
+dependency_check:
+  stage: code_analysis
+  image:
+    name: pmosbach/owasp-dependency-check:latest
+    entrypoint: [""]
+  script:
+    - /tmp/dependency-check/bin/dependency-check.sh --scan "./" --format ALL --project "$CI_PROJECT_NAME --enableExperimental"
+  artifacts:
+    paths:
+      - 'dependency-check-report.html'
+      - 'dependency-check-report.json'
+```
 
-###### run with additional arguments
+If you do not specify the job as above, the image will attempt to run OWASP Dependency Check on the `/builds` directory, where GitLab will inject code
+(see [here](https://docs.gitlab.com/ce/ci/docker/using_docker_images.html#how-docker-integration-works) for more details). If you do not override the
+`entrypoint`, OWASP Dependency Check will be invoked like this:
 
-`$ docker run --rm -v <project_source>:/tmp/src -v <report_destination_directory>:/tmp/reports -w /tmp/src -w /tmp/reports pmosbach/owasp-dependency-check --enableExperimental --disableBundleAudit "true"`
+`/tmp/dependency-check/bin/dependency-check.sh --scan /builds --format ALL --project GENERIC --enableExperimental`
+
+### If you insist on running via the Docker CLI
+
+`$ docker run --rm -v <project_source>:/builds/src -v <report_destination_directory>:/tmp/reports -w /tmp/src -w /tmp/reports pmosbach/owasp-dependency-check --enableExperimental`

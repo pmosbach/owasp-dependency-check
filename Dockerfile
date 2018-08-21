@@ -26,5 +26,5 @@ RUN wget -q -O /tmp/current.txt ${version_url} && \
 RUN /tmp/dependency-check/bin/dependency-check.sh --updateonly
 
 # This is intended to be a sane fallback, but you should override this via your .gitlab-ci.yml
-CMD ["--scan","/builds","--format","ALL","--project","GENERIC"]
+CMD ["--scan","/builds","--format","ALL","--project","GENERIC","--enableExperimental"]
 ENTRYPOINT ["/tmp/dependency-check/bin/dependency-check.sh"]
