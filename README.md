@@ -1,6 +1,6 @@
 # owasp-dependency-check
 
-[![](https://images.microbadger.com/badges/image/pmosbach/owasp-dependency-check.svg)](https://microbadger.com/images/pmosbach/owasp-dependency-check "Get your own image badge on microbadger.com") [![Docker Pulls](https://img.shields.io/docker/pulls/pmosbach/owasp-dependency-check.svg?maxAge=2592000)](https://hub.docker.com/r/pmosbach/owasp-dependency-check/) [![license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/pmosbach/owasp-dependency-check/blob/master/LICENSE)
+[![image size and layers](https://images.microbadger.com/badges/image/pmosbach/owasp-dependency-check.svg)](https://microbadger.com/images/pmosbach/owasp-dependency-check "Get your own image badge on microbadger.com") [![Docker Pulls](https://img.shields.io/docker/pulls/pmosbach/owasp-dependency-check.svg)](https://hub.docker.com/r/pmosbach/owasp-dependency-check/) [![license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/pmosbach/owasp-dependency-check/blob/master/LICENSE)
 
 ## About owasp-dependency-check
 
@@ -17,6 +17,7 @@ This was forked from [embrasure/owasp-dependency-check](https://github.com/embra
 ### Basic configuration with GitLab CI
 
 The following is an example job from a `.gitlab-ci.yml` file to use this image to run OWASP Dependency Check:
+
 ```yml
 dependency_check:
   stage: code_analysis
